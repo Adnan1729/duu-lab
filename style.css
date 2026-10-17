@@ -67,7 +67,7 @@ h1,h2,h3,h4{
   align-items:baseline;
   justify-content:space-between;
   gap:1.5rem;
-  padding:1.6rem var(--pad);
+  padding:1.6rem calc(max(0px, 100% - var(--maxw)) / 2 + var(--pad));
   border-bottom:1px solid var(--hairline);
   flex-wrap:wrap;
 }
@@ -145,7 +145,7 @@ main{flex:1 0 auto;}
 .site-footer{
   flex-shrink:0;
   display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
-  padding:1.3rem var(--pad);
+  padding:1.3rem calc(max(0px, 100% - var(--maxw)) / 2 + var(--pad));
   border-top:1px solid var(--hairline);
   font-family:var(--font-mono);
   font-size:0.66rem;letter-spacing:0.06em;color:var(--dusty-denim);
