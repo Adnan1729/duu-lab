@@ -91,26 +91,40 @@ main{flex:1 0 auto;}
 .page-head h1{font-size:clamp(2.1rem,4.5vw,3rem);}
 
 /* ---------- people ---------- */
-.role-group{margin-bottom:3rem;}
-.role-label{
-  font-size:0.72rem;text-transform:uppercase;letter-spacing:0.13em;
-  font-weight:500;color:var(--text-dim);margin-bottom:1.6rem;
-}
-.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:2.2rem 2rem;}
+/* ---------- people ---------- */
+.people{display:flex;flex-direction:column;gap:clamp(2rem,4vw,3rem);}
+.person{display:flex;gap:clamp(1.5rem,4vw,3rem);align-items:flex-start;}
 .person img{
-  width:100%;aspect-ratio:4/5;object-fit:cover;
+  flex:0 0 auto;
+  width:clamp(130px,20vw,185px);
+  aspect-ratio:4/5;
+  object-fit:cover;
   filter:grayscale(100%) contrast(1.02);
   background:var(--pine-teal);
   transition:filter .3s ease;
 }
 .person:hover img{filter:grayscale(100%) brightness(1.1);}
-.person h3{font-size:1.15rem;font-weight:600;margin:0.9rem 0 0.15rem;}
-.person p{font-size:0.82rem;color:var(--text-dim);margin:0;}
+.person-text{flex:1 1 auto;max-width:620px;}
+.person-text h3{font-size:1.2rem;font-weight:600;margin:0 0 0.15rem;}
+.person-text .role{font-size:0.82rem;color:var(--text-dim);margin:0 0 0.9rem;}
+.person-text .bio{font-size:0.95rem;color:var(--text-dim);margin:0;}
+
+@media (max-width:520px){
+  .person{flex-direction:column;gap:1rem;}
+  .person img{width:clamp(150px,45vw,185px);}
+}
 
 /* ---------- research ---------- */
-.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2.4rem;}
-.pillar h3{font-size:1.4rem;font-weight:600;margin-bottom:0.6rem;}
-.pillar p{color:var(--text-dim);font-size:0.95rem;margin:0;}
+.pillars{display:flex;flex-direction:column;gap:clamp(2.5rem,5vw,4rem);}
+.pillar{display:flex;gap:clamp(1.5rem,5vw,4rem);align-items:flex-start;}
+.pillar h3{flex:0 0 clamp(190px,30%,300px);font-size:1.5rem;font-weight:600;line-height:1.15;margin:0;}
+.pillar p{flex:1 1 auto;max-width:54ch;color:var(--text-dim);font-size:0.98rem;margin:0;}
+.pillar:nth-child(even){flex-direction:row-reverse;text-align:right;}
+
+@media (max-width:620px){
+  .pillar,.pillar:nth-child(even){flex-direction:column;text-align:left;gap:0.5rem;}
+  .pillar h3{flex:none;}
+}
 .applications{margin-top:3.5rem;}
 .applications .eyebrow{margin-bottom:1rem;}
 .app-list{display:flex;flex-wrap:wrap;gap:0.6rem 1.6rem;color:var(--text-dim);font-size:0.95rem;}
